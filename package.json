@@ -1,0 +1,54 @@
+{
+  "name": "grunt-cordova-splashs",
+  "description": "A grunt plugin to generate splash screens of an Cordova project",
+  "version": "0.1.1",
+  "homepage": "https://github.com/katallaxie/grunt-cordova-splashs",
+  "author": {
+    "name": "Sebastian Döll",
+    "url": "sebastian@pixelmilk.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/katallaxie/grunt-cordova-splashs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/katallaxie/grunt-cordova-splashs/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 5.3.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-eslint": "^17.3.1"
+  },
+  "peerDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "keywords": [
+    "gruntplugin",
+    "grunt",
+    "cordova",
+    "cordova-cli",
+    "phonegap"
+  ],
+  "directories": {},
+  "license": "SEE LICENSE IN LICSENSE",
+  "dependencies": {
+    "android-splash": "^1.0.0",
+    "async": "^1.5.2",
+    "gm": "^1.21.1",
+    "ios-splash": "^2.0.0"
+  }
+}
