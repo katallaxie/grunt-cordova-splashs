@@ -3,29 +3,37 @@
 
 // module
 module.exports = (grunt) => {
-  // dependencies
+  // modules
   const gm = require('gm');
   const path = require('path');
   const fs = require('fs');
   const async = require('async');
-  // map grunt
+  const Progress = require('progress');
+
+  // map
   const log = grunt.log;
   const util = grunt.util;
+
   // defaults
   let splashs = {
     ios: require('ios-splash')(),
     android: require('android-splash')()
-  };
+  },
+  bar;
 
   // run the queued image processing tasks
   function run(tasks, done) {
     // inform
     log.ok('Processing ...');
+    // progress bar
+    bar = new Progress('[:bar] :current/:total :elapsed', { total : tasks.length, width: 20 });
     // run
-    async.parallel(tasks, (error) => {
+    async.parallel(tasks, error => {
       if (error) {
         throw new util.error(`Error-> Processing splashs`);
       }
+      // inform
+      log.ok('Done.');
       // nothing else to do
       done(true);
     });
@@ -40,7 +48,11 @@ module.exports = (grunt) => {
         .extent(size.width, size.height)
         .crop(size.width, size.height)
         .write(dst, error => {
-          util.error(error);
+          // progress
+          if (bar) {
+            bar.tick();
+          }
+          // error
           if (error) {
             log.fail(error);
           } else {
@@ -124,8 +136,5 @@ module.exports = (grunt) => {
       // end if there is nothing in the queue
       done();
     }
-
-    // inform
-    log.ok('Done.');
   });
 };

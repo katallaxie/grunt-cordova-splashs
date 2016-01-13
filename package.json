@@ -49,6 +49,7 @@
     "android-splash": "^1.0.0",
     "async": "^1.5.2",
     "gm": "^1.21.1",
-    "ios-splash": "^2.0.0"
+    "ios-splash": "^2.0.0",
+    "progress": "^1.1.8"
   }
 }
