@@ -19,7 +19,9 @@ module.exports = (grunt) => {
 
   // run the queued image processing tasks
   function run(tasks, done) {
-    //done(false);
+    // inform
+    log.ok('Processing ...');
+    // run
     async.parallel(tasks, (error) => {
       if (error) {
         throw new util.error(`Error-> Processing splashs`);
@@ -122,5 +124,8 @@ module.exports = (grunt) => {
       // end if there is nothing in the queue
       done();
     }
+
+    // inform
+    log.ok('Done.');
   });
 };
